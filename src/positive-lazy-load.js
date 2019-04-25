@@ -1,7 +1,7 @@
-import '../node_modules/intersection-observer/intersection-observer.js';
-import Images from './Images.js';
-import Backgrounds from './Backgrounds.js';
-import Videos from './Videos.js';
+// import '../node_modules/intersection-observer/intersection-observer.js';
+import Images from './Images';
+import Backgrounds from './Backgrounds';
+import Videos from './Videos';
 
 class PosLazyLoad {
     constructor() {

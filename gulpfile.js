@@ -1,13 +1,20 @@
+const path = require('path');
 const gulp = require('gulp');
-const babel = require('gulp-babel');
+const babelify = require('babelify');
 const uglify = require('gulp-uglify');
 const webserver = require('gulp-webserver');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
 gulp.task('build', () => {
-    return gulp.src('./src/positive-lazy-load.js')
-        .pipe(babel({
-            presets: ['@babel/preset-env']
-        }))
+    return browserify(path.join('./src/', 'positive-lazy-load.js'), {debug: false})
+        .transform(babelify, {
+            presets: ["@babel/preset-env"]
+        })
+        .bundle()
+        .pipe(source('positive-lazy-load.js'))
+        .pipe(buffer())
         .pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
