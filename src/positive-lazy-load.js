@@ -1,3 +1,4 @@
+import '../node_modules/intersection-observer/intersection-observer.js';
 import Images from './Images.js';
 import Backgrounds from './Backgrounds.js';
 import Videos from './Videos.js';
