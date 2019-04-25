@@ -1,6 +1,6 @@
 {
   "name": "positive-lazy-load",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lazy loading solution for Positive websites",
   "main": "dist/positive-lazy-load.js",
   "scripts": {
