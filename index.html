@@ -1,0 +1,88 @@
+<html class="pos-no-js">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>document.documentElement.classList.remove("pos-no-js");</script>
+        <title>Lazy load</title>
+        <style>
+            body {
+                margin: 40px 0;
+            }
+            .wrap {
+                width: 100%;
+                margin: 0 auto;
+                max-width: 1200px;
+            }
+            .row {
+                margin: 0 0 40px;
+                width: 100%;
+            }
+            .row:last-child {
+                margin: 0;
+            }
+            h1 {
+                text-align: center;
+                margin: 0 0 40px;
+                font-family: sans-serif;
+                text-transform: uppercase;
+                font-size: 32px;
+                line-height: 32px;
+            }
+            img,
+            .img {
+                display: block;
+                width: 100%;
+                height: auto;
+                margin: 0;
+            }
+            .img {
+                background-size: 100% auto;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                padding-bottom: 66.667%;
+            }
+            video {
+                display: block;
+                width: 100%;
+                height: auto;
+                margin: 0;
+            }
+        </style>
+        <style>.pos-no-js img[data-pos-src],.pos-no-js video[data-pos-lzy]{display:none;}</style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="row">
+                <h1>Lazy loading</h1>
+            </div>
+            <div class="row">
+                <!-- <div class="img" data-pos-bg-src="./media/test-image.jpg"></div> -->
+                <div class="img" data-pos-bg-src='[{&quot;bp&quot;:992,&quot;url&quot;:&quot;./media/test-image-desk.jpg&quot;},{&quot;bp&quot;:0,&quot;url&quot;:&quot;./media/test-image.jpg&quot;}]'></div>
+                <noscript>
+                    <style>@media screen and (min-width: 992px) { #imgOne { background-image: url(./media/test-image-desk.jpg) !important; } }</style>
+                    <div id="imgOne" class="img" style="background-image: url(./media/test-image.jpg);"></div>
+                </noscript>
+            </div>
+            <div class="row">
+                <img data-pos-src="./media/test-image.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw" alt="Test image" />
+                <noscript><img src="./media/test-image.jpg" alt="Test image" /></noscript>
+            </div>
+            <div class="row">
+                <video poster="./media/poster.jpg" preload="none" autoplay loop mutes playsinline data-pos-lzy>
+                    <source data-pos-src="./media/video.mp4" type="video/mp4">
+                    <source data-pos-src="./media/video.webm" type="video/webm">
+                    <img data-pos-src="./media/test-image.jpg" alt="Test image" />
+                </video>
+                <noscript>
+                    <video poster="./media/poster.jpg" preload="none" autoplay loop mutes playsinline>
+                        <source src="./media/video.mp4" type="video/mp4">
+                        <source src="./media/video.webm" type="video/webm">
+                        <img src="./media/test-image.jpg" alt="Test image" />
+                    </video>
+                </noscript>
+            </div>
+        </div>
+
+        <script src="./src/positive-lazy-load.js" type="module"></script>
+    </body>
+</html>

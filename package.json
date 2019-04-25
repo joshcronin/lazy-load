@@ -1,0 +1,18 @@
+{
+  "name": "positive-lazy-load",
+  "version": "1.0.0",
+  "description": "Lazy loading solution for Positive websites",
+  "main": "dist/positive-lazy-load.js",
+  "scripts": {
+    "install": "gulp"
+  },
+  "author": "Josh Cronin",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "gulp": "^4.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}
